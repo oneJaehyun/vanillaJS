@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="one">
+      one
+      <div class="two">
+        two
+        <div class="three">three</div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var divs = document.querySelectorAll("div");
+  divs.forEach(function (div) {
+    div.addEventListener("click", logEvent, {
+      capture: true, // default 값은 false입니다.
+    });
+  });
+
+  function logEvent(event) {
+    // event.stopPropagation();
+    console.log(event.currentTarget.className);
+  }
+</script>

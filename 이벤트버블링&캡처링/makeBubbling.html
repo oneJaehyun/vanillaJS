@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="one">
+      one
+      <div class="two">
+        two
+        <div class="three">three</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var divs = document.querySelectorAll("div");
+    divs.forEach(function (div) {
+      div.addEventListener("click", logEvent);
+    });
+
+    function logEvent(event) {
+      console.log(event.currentTarget.className);
+    }
+  </script>
+</html>
