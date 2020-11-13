@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{str}}
+        <!-- v-가 붙으면 data 속성이나 computed 속성을 뒤지게 된다  -->
+        <!-- id를 특정태그에 연결할려고할때 v-bind  id에 abc를 연결하겠다  id라는 값이 데이터의 특정 데이터랑 연결된다 -->
+        <p v-bind:id="uuid" v-bind:class="name">{{num}}</p>
+        <!-- <p id= "abc1234">{{num}}</p> -->
+        <p>{{doubleNum}}</p>
+        <div v-if="loading">
+            Loading....
+        </div>
+        <div v-else>
+            test user has been logged in 
+        </div>
+        <!-- show는 dom은 남아있고 육안상으로만 지워져있다  -->
+        <div v-show="loading">
+            Loading...
+        </div>
+        <!-- 인풋 박스를 만들고 입력된 값을 p태그에 출력해보세요  -->
+        <input v-model="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            //
+            el : '#app',
+            data : {
+                str : 'hi',
+                num : 10,
+                uuid : 'abc1234',
+                name : 'text-blue', // 위에서 text-blue라는 값 name을 class에 연결하였다  v-bind:class=''
+                loading : true,
+                message : " ",
+
+            },
+            // 값에 따라 바뀌는 속성을 정의할때 computed를 정의한다 
+            computed : {
+                doubleNum : function() {
+                    return this.num *2;
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
